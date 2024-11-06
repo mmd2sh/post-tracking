@@ -1,5 +1,6 @@
 .post-tracking-modal .uk-modal-title {
     font-family: inherit;
+    text-align: start;
 }
 
 .post-tracking-modal {
