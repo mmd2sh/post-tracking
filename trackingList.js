@@ -3,7 +3,7 @@
     const mbWrap = $(thisScript).closest('.mb-wrapper');
 
     const resualt = [ {{content}} ];
-
+    
     $('.tracking-search-wrap .tracking-search-loading').hide();
     
     const submitBtn = $('input.drt-searchBtn[data-identifier*=search_]');
@@ -22,7 +22,7 @@
     const codeParam = urlParams.get(inputId);
     
     let items = '';
-    resualt.forEach(function(item) {
+    resualt.reverse().forEach(function(item) {
         items += `<tr PostnodeID="${item.PostnodeId}">
                     <td class="traching-date" tdate="${item.TDate}" tfdate="${item.TFDate}">${formatDate(item.TDate)}</td>
                     <td class="traching-describe">${item.Describe}</td>
@@ -53,12 +53,15 @@
                             رهگیری مرسوله به شماره :
                             ${trackingCode}
                         </h2>
-                        <a class="uk-modal-close uk-close"></a>
+                        <a class="uk-modal-close fal fa-times fa-2x uk-text-muted"></a>
                     </div>
                     <div class="uk-modal-body uk-text-center">
                         <div class="tracking-table-wrap">
                             ${table}
                         </div> 
+                        <div class="uk-margin uk-text-center">
+                            <a class="uk-button uk-button-primary uk-button-large" href="https://tracking.post.ir/?id=${trackingCode}" target="_blank">جزئیات بیشتر</a>
+                        </div>
                     </div>
                 </div>`;
 
@@ -72,7 +75,7 @@
         modal.dialog.addClass('uk-modal-dialog-large');
     } else {
         
-        if (isTrackingSubmitClicked ?? false) {
+        if (typeof isTrackingSubmitClicked !== 'undefined') {
             
             const modal = UIkit.modal.blockUI(`
                 <div class="tp-modal-no-result uk-alert uk-alert-warning uk-text-center">
