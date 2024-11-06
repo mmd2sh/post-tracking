@@ -1,4 +1,3 @@
-<script>
 !function() {
     const thisScript = document.currentScript;
     const mbWrap = $(thisScript).closest('.mb-wrapper');
@@ -198,4 +197,3 @@
         }[key] || key;
     }
 }();
-</script>
