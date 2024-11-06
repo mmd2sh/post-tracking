@@ -2,9 +2,20 @@
     <i class="far fa-2x fa-location"></i>
     <label>رهگیری مرسولات پستی</label>
     
-    {{trackingCode}}
-    
-    <div class="tracking-search-loading" hidden>
-        <i class="fal fa-circle-notch fa-spin fa-2x"></i>
+    <div class="tracking-search-bar">
+        
+        <a class="tracking-search-paste" data-uk-tooltip title="Paste">
+            <i class="fal fa-paste"></i>
+        </a>
+        
+        {{trackingCode}}
+        
+        <div class="tracking-search-counter">
+            24/<bdi>0</bdi> کاراکتر
+        </div>
+        
+        <div class="tracking-search-loading" hidden>
+            <i class="fal fa-circle-notch fa-spin fa-2x"></i>
+        </div>
     </div>
 </div>
