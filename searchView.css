@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 40px 50px;
+    padding: clamp(15px, 3vw, 40px) clamp(15px, 3vw, 50px);
     border-radius: 24px;
     background: rgb(255 255 255 / 95%);
     backdrop-filter: blur(20px);
@@ -22,6 +22,7 @@
 [id*=search_wrapper] .tracking-search-wrap {
 	flex: 1;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	color: #1D4593;
 	padding: 0;
@@ -34,15 +35,32 @@
     font-weight: 500;
 }
 
-.tracking-search-wrap .dp-textBoxHolder {
+.tracking-search-wrap .tracking-search-bar {
 	flex: 1;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
     gap: 10px;
+    min-width: 270px;
 	padding: 8px;
-	margin: 0 !important;
-	border-radius: 50px;
+	border-radius: clamp(15px, 3vw, 50px);
+	background: #fff;
 	box-shadow: 0 2px 9px 0 rgba(29, 69, 147, 0.1);
+	transition: .3s;
+}
+
+.tracking-search-wrap .tracking-search-bar:focus-within {
+    box-shadow: 0 0 0 1px #aaa;
+}
+
+.tracking-search-paste {
+    font-size: 30px;
+    padding: 0 10px;
+}
+
+.tracking-search-wrap .dp-textBoxHolder {
+    flex: 1;
+	margin: 0 !important;
 }
 
 .tracking-search-wrap .dp-textBoxHolder label {
@@ -52,8 +70,9 @@
 .tracking-search-wrap .dp-textBoxHolder [data-dbfield=trackingCode],
 .tracking-search-wrap .dp-textBoxHolder [data-dbfield=trackingCode]:focus{
 	flex: 1;
-	width: auto;
+	width: 100%;
 	height: auto;
+	min-width: 220px;
 	color: #1d4593 !important;
 	font-family: inherit;
 	font-size: 20px !important;
@@ -65,16 +84,18 @@
 	display: none;
 }
 
-[id*=search_wrapper]:has(.tracking-search-wrap) input.drt-searchBtn[data-identifier*=search_] {
+[id*=search_wrapper]:has(.tracking-search-wrap) input.drt-searchBtn[data-identifier*=search_],
+[id*=search_wrapper]:has(.tracking-search-wrap) input.drt-searchBtn[data-identifier*=search_]:focus {
 	float: none;
 	width: auto;
 	height: auto;
 	color: #20435b;
 	font-family: inherit;
-	font-size: 16px;
+	font-size: 16px !important;
 	font-weight: bold;
 	padding: 15px 60px;
 	margin: 0;
+	margin-right: auto;
 	border: 0 !important;
 	border-radius: 50px !important;
 	background: #fcd603 !important;
@@ -121,6 +142,17 @@
     animation-duration: .5s;
 }
 
-[auth=false] .mb-wrapper:has(.tracking-search-wrap) {
-    margin-top: -72px;
+
+@media (min-width: 768px) {
+    [auth=false] .mb-wrapper:has(.tracking-search-wrap) {
+        margin-top: -72px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .uk-container:has(.tracking-search-wrap) {
+        padding-top: 20px;
+        background: #fcd603;
+    }
 }
