@@ -1,0 +1,94 @@
+.post-tracking-modal .uk-modal-title {
+    font-family: inherit;
+}
+
+.post-tracking-modal {
+    user-select: text;
+}
+
+.tracking-table-wrap {
+    max-width: 100%;
+    overflow: auto;
+    -webkit-box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0px 40px 0px rgba(0, 0, 0, 0.15);
+}
+
+.tracking-table-wrap > table {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border-bottom: 1px solid #1d4593;
+    /*background: #fff;*/
+}
+
+.tracking-table-wrap > table > :first-child > :first-child > * {
+    color: #fcd603;
+    text-align: start;
+    font-size: 18px;
+    padding: 10px;
+    border: 0;
+    background: #1d4593;
+}
+
+.tracking-table-wrap > table > :first-child > :first-child > :first-child {
+    border-radius: 0 10px 0 0;
+}
+
+.tracking-table-wrap > table > :first-child > :first-child > :last-child {
+    border-radius: 10px 0 0 0;
+}
+
+.tracking-table-wrap > table tbody tr:nth-child(odd) {
+    background: #f8f6ff;
+}
+
+.tracking-table-wrap > table tbody tr td {
+    text-align: initial;
+    padding: 10px;
+    border: 1px solid #1d4593;
+}
+
+.traching-describe {
+    width: 40%;
+}
+
+.tp-modal-no-result {
+    margin: 0;
+}
+
+.tp-modal-no-result :where(h1, h2, h3, h4, h5, h6) {
+    font-family: inherit;
+}
+
+.uk-modal-content:has(.tp-modal-no-result, .post-tracking-modal) {
+    margin: 0;
+}
+
+@media (max-width: 640px) {
+    .tracking-table-wrap {
+        box-shadow: none;
+    }
+    
+    .tracking-table-wrap > table {
+        border: 0;
+    }
+    
+    .tracking-table-wrap > table > :first-child > :first-child {
+        display: none;
+    }
+    
+    .tracking-table-wrap tr {
+        display: block;
+        margin: 10px 0;
+        border-radius: 15px;
+        border: 1px solid #1d4593;
+    }
+    
+    .tracking-table-wrap :where(td, th) {
+        display: block;
+        width: 100% !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+    }
+}
